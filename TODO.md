@@ -1,0 +1,2 @@
+- [x] Update CSS styles for .pasfoto to resemble a passport photo (add width, height, border, object-fit)
+- [x] Modify HTML in "Tentang Saya" section to align photo and name horizontally (change flex-column to flex-row, adjust margins and alignment)

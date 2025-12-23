@@ -16,12 +16,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ================= NAVBAR BIRU ================= */
+.navbar-blue {
+    background: linear-gradient(90deg, #2563eb, #1e40af);
+}
+
+/* Brand */
+.navbar-blue .navbar-brand {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Menu */
+.navbar-blue .nav-link {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    margin: 0 6px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Hover underline */
+.navbar-blue .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: 0.3s;
+}
+
+.navbar-blue .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-blue .nav-link:hover {
+    color: #ffffff;
+}
+
+/* Active menu */
+.navbar-blue .nav-link.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Toggler */
+.navbar-blue .navbar-toggler {
+    border: none;
+}
+
+.navbar-blue .navbar-toggler-icon {
+    filter: brightness(2);
+}
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f4f7fc;
+            background: #ecf1f8;
         }
         .hero {
-            background: linear-gradient(to right, #4e73df, #1cc88a);
+            background: linear-gradient(to right, #4e73df, #041f70);
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -36,6 +92,103 @@
         .prestasi-card:hover, .contact-mini-card:hover {
             transform: translateY(-5px);
         }
+
+        /* ================= SAMAKAN UKURAN CARD ================= */
+        .prestasi-card {
+            height: 450px; /* Set fixed height for uniform card sizes, increased for bigger cards */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Wrapper foto */
+.pasfoto-wrapper {
+    width: 230px;
+    height: 300px;
+    padding: 10px;
+    background: #f8f9fc;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Foto */
+.pasfoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+}
+
+/* Nama */
+.nama-sama {
+    color: #6b7280;
+    font-size: 1rem;
+}
+/* Card Tentang Saya */
+.tentang-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #4e73df;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .tentang-card {
+        margin-top: 20px;
+    }
+}
+
+
+
+        .dokumentasi-card {
+            height: 500px; /* Make cards bigger */
+            display: flex;
+            flex-direction: column;
+            width: 400px; /* Make cards wider */
+            flex-shrink: 0; /* Prevent cards from shrinking to enable horizontal scroll */
+        }
+
+        /* Samakan tinggi gambar */
+        .prestasi-card img,
+        .dokumentasi-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Body isi fleksibel */
+        .prestasi-card .card-body {
+            /* No flex to allow full text display */
+        }
+
+        .dokumentasi-card .card-body {
+            flex: 1;
+            overflow: hidden; /* Keep for dokumentasi to maintain height */
+        }
+
+/* ================= SCROLL DOKUMENTASI ================= */
+.dokumentasi-scroll {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.dokumentasi-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.dokumentasi-scroll::-webkit-scrollbar-thumb {
+    background: #4e73df;
+    border-radius: 10px;
+}
         .contact-icon {
             font-size: 1.8rem;
             color: #4e73df;
@@ -52,7 +205,7 @@
 <body>
 
     <!-- NAVBAR TERANG -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+   <nav class="navbar navbar-expand-lg navbar-dark navbar-blue shadow sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Blog Andrian</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -78,61 +231,68 @@
 
     <!-- HERO -->
     <section class="hero">
-        <h1 class="fw-bold">Selamat Datang di Blog Pribadi Saya</h1>
+        <h1 class="fw-bold">Selamat Datang di Blog Pribadi Ian</h1>
         <p>Berbagi cerita, pengalaman, prestasi, dan perjalanan hidup saya.</p>
     </section>
 
 
     <!-- ARTIKEL -->
-    <section class="container py-5" id="artikel">
-        <h2 class="text-center fw-bold mb-4">Artikel Terbaru</h2>
+   <section class="container py-5" id="artikel">
+    <h2 class="text-center fw-bold mb-4">Artikel Terbaru</h2>
 
-        <div class="row g-4">
+    <div class="row g-4">
 
-            <!-- Artikel 1 -->
-            <div class="col-md-4">
-                <div class="card post-card shadow-sm">
-                    <img src="https://source.unsplash.com/400x250?webdesign" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Tips Memulai Web Development</h5>
-                        <p class="card-text">
-                            Banyak pemula bingung mulai dari mana. Saya membagikan langkah awal agar belajar web terasa mudah dan terstruktur.
-                        </p>
-                        <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
+        <!-- ARTIKEL SAHAM -->
+        <div class="col-md-4">
+            <div class="card post-card shadow-sm h-100">
+                <img src="img/saham.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Belajar Saham Sejak Dini</h5>
+                    <p class="card-text">
+                        Investasi saham bukan hanya untuk orang berpengalaman. Mahasiswa dan pemula pun bisa mulai
+                        belajar saham dengan memahami dasar seperti manajemen risiko, analisis sederhana, dan
+                        pentingnya kesabaran dalam menghadapi fluktuasi pasar. Saham bukan soal cepat kaya,
+                        tetapi tentang disiplin dan konsistensi.
+                    </p>
                 </div>
             </div>
-
-            <!-- Artikel 2 -->
-            <div class="col-md-4">
-                <div class="card post-card shadow-sm">
-                    <img src="https://source.unsplash.com/400x250?productivity" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Cara Tetap Produktif Setiap Hari</h5>
-                        <p class="card-text">
-                            Saya membahas strategi yang saya pakai untuk mempertahankan produktivitas meskipun jadwal kuliah padat.
-                        </p>
-                        <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Artikel 3 -->
-            <div class="col-md-4">
-                <div class="card post-card shadow-sm">
-                    <img src="https://source.unsplash.com/400x250?motivation" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">Belajar dari Pengalaman Hidup</h5>
-                        <p class="card-text">
-                            Pengalaman pahit maupun manis adalah guru terbaik. Di artikel ini saya membahas pelajaran berharga yang saya temukan.
-                        </p>
-                        <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
+
+        <!-- ARTIKEL TEKNOLOGI -->
+        <div class="col-md-4">
+            <div class="card post-card shadow-sm h-100">
+                <img src="img/teknologi2.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Peran Teknologi di Era Digital</h5>
+                    <p class="card-text">
+                        Teknologi berkembang sangat cepat dan mempengaruhi hampir semua aspek kehidupan.
+                        Mulai dari pengembangan website, kecerdasan buatan, hingga sistem digital di bidang pendidikan
+                        dan bisnis. Menguasai teknologi bukan lagi pilihan, melainkan kebutuhan untuk bertahan
+                        dan berkembang di era modern.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTIKEL PSIKOLOGI -->
+        <div class="col-md-4">
+            <div class="card post-card shadow-sm h-100">
+                <img src="img/psikologi.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Psikologi dan Cara Berpikir Manusia</h5>
+                    <p class="card-text">
+                        Psikologi membantu kita memahami bagaimana cara berpikir, merasakan, dan bertindak.
+                        Dengan memahami psikologi, kita bisa mengelola emosi, meningkatkan kepercayaan diri,
+                        serta membangun hubungan sosial yang lebih sehat. Mental yang kuat sangat berpengaruh
+                        terhadap kesuksesan akademik maupun kehidupan sehari-hari.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
 
     <!-- TENTANG SAYA -->
@@ -140,17 +300,37 @@
         <h2 class="fw-bold text-center mb-4">Tentang Saya</h2>
         <div class="row align-items-center">
 
-            <div class="col-md-4 text-center">
-                <img src="FOTO_ANDA.jpg" class="rounded-circle shadow" width="220" alt="foto-pribadi">
-                <p class="text-muted mt-2">*Ganti "FOTO_ANDA.jpg" dengan foto kamu*</p>
+          <!-- FOTO + NAMA -->
+            <div class="col-md-4 d-flex flex-column align-items-center">
+                <div class="pasfoto-wrapper">
+                    <img src="img/foto_andre.jpeg" alt="foto-pribadi" class="pasfoto">
+                </div>
+                <h5 class="mt-3 fw-bold nama-sama text-center">
+                    Andrian Maulana Insani
+                </h5>
             </div>
 
-            <div class="col-md-8">
-                <p class="fs-5">
-                    Halo! Saya Andrian, seorang mahasiswa yang tertarik pada dunia teknologi dan pengembangan website.
-                    Blog ini adalah tempat saya berbagi pemikiran, pengalaman, dan perjalanan menuju pengembang web profesional.
-                </p>
-            </div>
+      <div class="col-md-8">
+    <div class="tentang-card d-flex flex-column">
+        <!-- TEKS UTAMA -->
+        <p class="fs-5">
+            Halo! Saya Andrian, Seorang Mahasiswa yang tertarik pada dunia teknologi, Finance (Saham),
+            Psikologi, Entrepreneurship yang bisa nembus ke Bursa Efek Indonesia (BEI),
+            Hukum dan Politik. Blog ini adalah tempat saya berbagi pemikiran, dan pengalaman.
+        </p>
+
+        <!-- QUOTES DI BAWAH -->
+        <div class="quotes-bottom mt-auto">
+            <i class="bi bi-quote quote-icon"></i>
+            <span class="quote-text">
+                Hidup itu Seperti permainan Catur,Menggunakan langkah dengan 
+                bijak untuk tidak kalah dalam Permainan dan agar bisa mencapai Tujuan Akhir.
+            </span>
+        </div>
+    </div>
+</div>
+
+
 
         </div>
     </section>
@@ -163,32 +343,32 @@
     <div class="row g-4">
 
         <div class="col-md-4">
-            <div class="card shadow prestasi-card p-4 text-center">
-                <div class="d-flex justify-content-center mb-3">
-                    <img src="img/sertifikat.webp" width="200" alt="icon-sertifikat">
+            <div class="card shadow prestasi-card text-center">
+                <img src="img/serti_balai_bahasa.jpg" class="card-img-top" alt="icon-sertifikat">
+                <div class="card-body">
+                    <h5 class="fw-bold">Sertifikat Balai Bahasa Sumatra Utara</h5>
+                    <p>Mendapatkan Sertifikat Pelatihan di Balai Bahasa Tentang Melestarikan Bahasa Daerah di Sumaatra Utara tahun 2024.</p>
                 </div>
-                <h5 class="fw-bold">E-Sertifikat Lomba Web Design</h5>
-                <p>Mendapatkan e-sertifikat sebagai Juara 1 Lomba Web Design tingkat kota tahun 2024.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow prestasi-card p-4 text-center">
-                <div class="d-flex justify-content-center mb-3">
-                    <img src="img/sertifikat.webp" width="200" alt="icon-sertifikat">
+            <div class="card shadow prestasi-card text-center">
+                <img src="img/serti_komdigi.jpg" class="card-img-top" alt="icon-sertifikat">
+                <div class="card-body">
+                    <h5 class="fw-bold">Sertifikat Pelatihan di BBPSDMP Kominfo(sebelum berganti nama jadi komdigi)</h5>
+                    <p>Menerima Sertifikat Video Content Creator di Komdigi Tahun 2024.</p>
                 </div>
-                <h5 class="fw-bold">E-Sertifikat Kompetisi Coding</h5>
-                <p>Menerima e-sertifikat finalis dari kompetisi pemrograman mahasiswa nasional.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow prestasi-card p-4 text-center">
-                <div class="d-flex justify-content-center mb-3">
-                    <img src="img/sertifikat.webp" width="200" alt="icon-sertifikat">
+            <div class="card shadow prestasi-card text-center">
+                <img src="img/serti_osis.jpg" class="card-img-top" alt="icon-sertifikat">
+                <div class="card-body">
+                    <h5 class="fw-bold">Sertifikat Penghargaan Anggota Osis QES 6(Quality Excellence System)</h5>
+                    <p>Sertifikat Anggota OSIS dengan Kategori Baik Tahun 2024.</p>
                 </div>
-                <h5 class="fw-bold">E-Sertifikat Web Developer</h5>
-                <p>Sertifikat digital resmi dari lembaga pelatihan profesional sebagai Web Developer.</p>
             </div>
         </div>
 
@@ -196,43 +376,58 @@
 </section>
 
     <!-- DOKUMENTASI -->
-<section class="container py-5" id="dokumentasi">
-    <h2 class="text-center fw-bold mb-4">Dokumentasi</h2>
+<section class="py-5" id="dokumentasi">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Dokumentasi</h2>
+    </div>
 
-    <div class="row g-4">
+    <div class="dokumentasi-scroll">
 
         <!-- Foto 1 -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="img/dok1.jpg" class="card-img-top" alt="dokumentasi-1">
-                <div class="card-body text-center">
-                    <p class="mb-0">Kegiatan Lomba Web Design</p>
-                </div>
+        <div class="card shadow-sm dokumentasi-card">
+            <img src="img/himaprodi.jpeg" class="card-img-top" alt="dokumentasi-1">
+            <div class="card-body text-center">
+                <p class="mb-0">Mengikuti Kegiatan Himpunan Prodi Teknologi Rekayasa Perangkat Lunak Melakukan
+                    yel - yel untuk  tingkat yang wisuda
+                </p>
             </div>
         </div>
 
         <!-- Foto 2 -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="img/dok2.jpg" class="card-img-top" alt="dokumentasi-2">
-                <div class="card-body text-center">
-                    <p class="mb-0">Presentasi Projek Kampus</p>
-                </div>
+        <div class="card shadow-sm dokumentasi-card">
+            <img src="img/komdigi.jpeg" class="card-img-top" alt="dokumentasi-2">
+            <div class="card-body text-center">
+                <p class="mb-0">Siswa SMK Negeri 1 Percut Sei Tuan Melakukan Magang di kantor
+                    Kominfo sebelum berganti nama menjadi Komdigi </p>
             </div>
         </div>
 
         <!-- Foto 3 -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="img/dok3.jpg" class="card-img-top" alt="dokumentasi-3">
-                <div class="card-body text-center">
-                    <p class="mb-0">Sesi Workshop Pemrograman</p>
-                </div>
+        <div class="card shadow-sm dokumentasi-card">
+            <img src="img/osis.jpeg" class="card-img-top" alt="dokumentasi-3">
+            <div class="card-body text-center">
+                <p class="mb-0">Foto Bersama OSIS QES(Quality Execution System) 6</p>
+            </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="card shadow-sm dokumentasi-card">
+            <img src="img/balai bahasa.jpeg" class="card-img-top" alt="dokumentasi-4">
+            <div class="card-body text-center">
+                <p class="mb-0">Mengikuti Kegiatan pelatihan di Balai Bahasa</p>
+            </div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="card shadow-sm dokumentasi-card">
+            <img src="img/kerja.jpeg" class="card-img-top" alt="dokumentasi-5">
+            <div class="card-body text-center">
+                <p class="mb-0">Foto Bersama dengan teman kerja Setelah selesai kerja </p>
             </div>
         </div>
 
     </div>
-    </section>
+</section>
 
 
 
@@ -242,18 +437,18 @@
         <h2 class="text-center fw-bold mb-4">Pengalaman</h2>
 
         <div class="card shadow-sm p-4 mb-3">
-            <h5 class="fw-bold">Magang di Perusahaan IT</h5>
-            <p>Mengerjakan proyek web dan terlibat dalam tim backend.</p>
+            <h5 class="fw-bold">OSIS Kadiv(kepala divisi) Agama Islam</h5>
+            <p>saya bertanggung jawab dalam merancang, mengelola, serta mengkoordinasikan berbagai program keagamaan di sekolah. Mulai dari kegiatan keislaman, pembinaan rohani, hingga pengembangan karakter siswa agar tercipta lingkungan sekolah yang lebih religius, tertib, dan harmonis. Saya juga berperan dalam memastikan setiap agenda berjalan dengan baik, bekerja sama dengan pengurus OSIS lainnya, serta menjadi penghubung antara siswa dan pembina dalam kegiatan yang bersifat spiritual dan edukatif.</p>
         </div>
 
         <div class="card shadow-sm p-4 mb-3">
-            <h5 class="fw-bold">Freelancer Web Design</h5>
-            <p>Membuat website untuk UMKM dan toko online.</p>
+            <h5 class="fw-bold">Waiters</h5>
+            <p>saya bertugas memberikan pelayanan terbaik kepada pelanggan dengan menyajikan makanan dan minuman secara ramah, cepat, dan tepat. Saya memastikan setiap pelanggan merasa nyaman, mulai dari menyambut mereka, mencatat pesanan, hingga mengantarkan hidangan dengan sopan. Selain itu, saya juga menjaga kebersihan meja, memahami menu yang tersedia, serta bekerja sama dengan tim dapur untuk memastikan pelayanan berjalan lancar dan memuaskan.</p>
         </div>
 
         <div class="card shadow-sm p-4 mb-3">
-            <h5 class="fw-bold">Ketua Tim Coding Kampus</h5>
-            <p>Mengadakan workshop dan kompetisi pemrograman.</p>
+            <h5 class="fw-bold">Magang Di BBPSDMP Komdigi Medan</h5>
+            <p>Membantu Membuat projek tampilan User Interface(UI) untuk website pelatihan</p>
         </div>
     </section>
 
@@ -327,6 +522,24 @@
     <footer>
         <p>© 2025 Blog Andrian • Andrian Maulana Insani</p>
     </footer>
+    <!-- SCRIPT UNTUK BACA SELENGKAPNYA -->
+<script>
+    document.querySelectorAll(".read-more-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+
+            const card = this.parentElement;
+            const moreText = card.querySelector(".more-text");
+
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+                this.textContent = "Tutup";
+            } else {
+                moreText.style.display = "none";
+                this.textContent = "Baca Selengkapnya";
+            }
+        });
+    });
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
